@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block extra_headers %}
+        <title>Add category</title>
+    {% endblock %}
+
+    {% block content %}
+        <h1>Add category</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" value="{{ category.name }}" />
+            <input type="color" name="color" value="{{ category.color }}" />
+            <input type="submit" />
+        </form>
+    {% endblock %}
+</body>
+</html>
