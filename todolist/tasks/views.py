@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Category
+from .models import Category, Task
 
 
 def index(request):
@@ -45,3 +45,28 @@ def delete_category(request, category_id):
     category = Category.objects.get(id=category_id)
     category.delete()
     return redirect('categories-list')
+
+
+def tasks(request):
+    tasks = Task.objects.all()
+    return render(request, 'tasks.html', {
+        'tasks': tasks
+    })
+
+
+def add_task(request):
+    categories = Category.objects.all()
+    if request.method == 'POST':
+        category_id = request.POST.get('category_id')
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        if name and description and category_id:
+            task = Task(
+                name=name,
+                description=description,
+                category_id=category_id
+            )
+            task.save()
+    return render(request, 'add_task.html', {
+        'categories': categories
+    })

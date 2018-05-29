@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block extra_headers %}
+        <title>Tasks</title>
+    {% endblock %}
+
+    {% block content %}
+        <h1>Tasks</h1>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Decription</td>
+                <td>Category</td>
+            </tr>
+            {% for task in tasks %}
+            <tr style="background-color: {{ task.category.color }}">
+                <td>{{ task.name }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.category.name }}</td>
+            </tr>
+            {% endfor %}
+         </table>
+    {% endblock %}
+</body>
+</html>
