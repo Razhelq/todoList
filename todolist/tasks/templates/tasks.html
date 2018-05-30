@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tasks</title>
-</head>
-<body>
     {% extends 'base.html' %}
 
     {% block extra_headers %}
         <title>Tasks</title>
     {% endblock %}
-
+</head>
+<body>
     {% block content %}
         <h1>Tasks</h1>
         <table>
@@ -24,6 +22,9 @@
                 <td>{{ task.name }}</td>
                 <td>{{ task.description }}</td>
                 <td>{{ task.category.name }}</td>
+                <td>
+                    <a href="{% url 'edit-task' task.id %}">Edytuj</a>
+                </td>
             </tr>
             {% endfor %}
          </table>

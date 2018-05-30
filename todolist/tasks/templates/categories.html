@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-</head>
-<body>
     {% extends 'base.html' %}
 
     {% block extra_headers %}
         <title>Categories</title>
     {% endblock %}
-
+</head>
+<body>
     {% block content %}
         <h1>Categories</h1>
         <table>
@@ -23,7 +22,7 @@
                 <td>
                     <a href="{% url 'edit-category' category.id %}">Edytuj</a> ||
                     <a href="{% url 'delete-category' category.id %}">Usuń</a>
-                    </td>
+                </td>
             </tr>
             {% endfor %}
          </table>

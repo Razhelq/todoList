@@ -5,16 +5,16 @@
     {% extends 'base.html' %}
 
     {% block extra_headers %}
-        <title>Add Task</title>
+        <title>Edit Task</title>
     {% endblock %}
 </head>
 <body>
     {% block content %}
-        <h1>Add Task</h1>
+        <h1>Add task</h1>
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="name" placeholder="Name" />
-            <input type="description" name="description" palceholder="Description" />
+            <input type="text" name="name" value="{{ task.name }}" />
+            <input type="text" name="description" value="{{ task.description }}" />
             <select name="category_id">
                 {% for category in categories %}
                     <option value={{ category.id }}>{{ category.name }}</option>

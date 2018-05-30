@@ -70,3 +70,21 @@ def add_task(request):
     return render(request, 'add_task.html', {
         'categories': categories
     })
+
+
+def edit_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    categories = Category.objects.all()
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('name')
+        category_id = request.POST.get('category_id')
+        if name and categories and description:
+            task.name = name
+            task.description = description
+            task.category_id = category_id
+            task.save()
+    return render(request, 'edit_task.html', {
+        'categories': categories,
+        'task': task
+    })
