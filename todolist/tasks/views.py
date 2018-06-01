@@ -88,3 +88,9 @@ def edit_task(request, task_id):
         'categories': categories,
         'task': task
     })
+
+
+def delete_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.delete()
+    return redirect('tasks-list')

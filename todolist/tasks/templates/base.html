@@ -9,23 +9,23 @@
 <body>
     <header>
         <nav><ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}">Home</a></li><br>
             <li><a href="{% url 'categories-list' %}">Categories</a></li>
-            <li><a href="{% url 'add-category' %}">Add Category</a></li>
+            <li><a href="{% url 'add-category' %}">Add Category</a></li><br>
             <li><a href="{% url 'tasks-list' %}">Tasks</a></li>
             <li><a href="{% url 'add-task' %}">Add Task</a></li>
         </ul></nav>
     </header>
 
     <section class="wrapper">
+        <br><br>
         {% block content %}
 
         {% endblock %}
     </section>
-
+    <br><br>
     <footer>
-        <h2>footer!</h2>
+        <h6><a href="http://www.mateuszszpakowski.pl">www.mateuszszpakowski.pl</a></h6>
     </footer>
-
 </body>
 </html>

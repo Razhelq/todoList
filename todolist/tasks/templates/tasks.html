@@ -23,7 +23,8 @@
                 <td>{{ task.description }}</td>
                 <td>{{ task.category.name }}</td>
                 <td>
-                    <a href="{% url 'edit-task' task.id %}">Edytuj</a>
+                    <a href="{% url 'edit-task' task.id %}">Edytuj</a> ||
+                    <a href="{% url 'delete-task' task.id %}">Usun</a>
                 </td>
             </tr>
             {% endfor %}
